@@ -1,3 +1,4 @@
 [mcp_servers.mdo_agent_deck]
-command = "docker"
-args = ["run", "-i", "--rm", "--name", "mdo_agent_deck", "--platform", "linux/amd64", "-p", "8001:8001", "-p", "8002:8002", "--mount", "type=bind,src=.,target=/home/dafoamuser/mount", "-w", "/home/dafoamuser/mount", "dafoam/agent:latest", "bash", "-lc", "source /home/dafoamuser/dafoam/loadDAFoam.sh && mdo-agent-deck-mcp"]
+command = "bash"
+args = ["-c", ". $DAFOAM_ROOT_PATH/loadDAFoam.sh && export AGENT_DECK_RUN_MODE=HPC && export AGENT_DECK_WORK_DIR=$PWD && mdo-agent-deck-mcp"]
+env_vars = ["DAFOAM_ROOT_PATH", "PWD"]
