@@ -1,0 +1,16 @@
+{
+    "mcpServers": {
+        "mdo_agent_deck": {
+          "type": "stdio",
+          "command": "bash",
+          "args": [
+            "-lc",
+            ". $DAFOAM_ROOT_PATH/loadDAFoam.sh && export AGENT_DECK_RUN_MODE=HPC && export AGENT_DECK_WORK_DIR=$PWD && mdo-agent-deck-mcp"
+          ],
+          "env": {
+            "DAFOAM_ROOT_PATH": "${DAFOAM_ROOT_PATH}",
+            "PWD": "${PWD}"
+          }
+        }
+    }
+}
